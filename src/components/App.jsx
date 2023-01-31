@@ -80,7 +80,6 @@ export class App extends Component {
   render() {
     const { status, showModal, response, largeImg, searchValue } = this.state;
 
-    const notify = () => toast('Here is your toast.');
     return (
       <div>
         <Searchbar onSubmit={this.onSubmit}></Searchbar>
