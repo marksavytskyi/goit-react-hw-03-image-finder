@@ -1,4 +1,4 @@
-import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
+import ImageGalleryItem from './ImageGalleryItem';
 import PropTypes from 'prop-types';
 
 function ImageGallery({ response, toggleModal }) {

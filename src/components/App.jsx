@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { MagnifyingGlass } from 'react-loader-spinner';
 
-import ImageGallery from './ImageGallery/ImageGallery';
-import Searchbar from './Searchbar/Searchbar';
-import Button from './Button/Button';
-import Modal from './Modal/Modal';
+import ImageGallery from './ImageGallery';
+import Searchbar from './Searchbar';
+import Button from './Button';
+import Modal from './Modal';
+import Loader from './Loader';
+
 import * as API from './services/api';
 
 const STATUS = {
@@ -85,9 +86,7 @@ export class App extends Component {
         <Searchbar onSubmit={this.onSubmit}></Searchbar>
 
         {status === 'idle' && ''}
-        {status === 'pending' && (
-          <MagnifyingGlass wrapperClass="Spinner"></MagnifyingGlass>
-        )}
+        {status === 'pending' && <Loader></Loader>}
         {status === 'resolved' && (
           <>
             <ImageGallery
