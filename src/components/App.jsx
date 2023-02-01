@@ -83,6 +83,11 @@ export class App extends Component {
 
     return (
       <div>
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <img src={largeImg} alt="" />
+          </Modal>
+        )}
         <Searchbar onSubmit={this.onSubmit}></Searchbar>
 
         {status === 'idle' && ''}
@@ -101,12 +106,6 @@ export class App extends Component {
             <Toaster position="top-center" reverseOrder={false} />
             {toast.error(`${searchValue} not found!`)}
           </div>
-        )}
-
-        {showModal && (
-          <Modal onClose={this.toggleModal}>
-            <img src={largeImg} alt="" />
-          </Modal>
         )}
       </div>
     );
