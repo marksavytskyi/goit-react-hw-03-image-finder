@@ -49,7 +49,16 @@ export class App extends Component {
     if (page !== prevState.page) {
       this.setState({ status: STATUS.pending });
       try {
-        const { hits } = await API.getImage(searchValue, page);
+        const { hits, totalHits } = await API.getImage(searchValue, page);
+
+        if (page > Math.round(totalHits / 12)) {
+          <Toaster position="top-center" reverseOrder={false} />;
+
+          toast.error(`That it!`);
+
+          this.setState({ status: STATUS.idle });
+          return;
+        }
         this.setState(({ response }) => {
           return {
             response: [...response, ...hits],
